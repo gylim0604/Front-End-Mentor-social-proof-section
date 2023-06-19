@@ -24,6 +24,7 @@ class ReviewCard extends HTMLElement{
 
         // user review
         const userReview = wrapper.appendChild(document.createElement('p'));
+        userReview.setAttribute('class', 'review')
         userReview.textContent = this.hasAttribute('review') ? this.getAttribute('review'): '';
         const styleCss = document.createElement("link");
         styleCss.setAttribute("rel", "stylesheet");
