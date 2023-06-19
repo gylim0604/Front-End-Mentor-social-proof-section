@@ -15,13 +15,13 @@ body{
     font-weight: 400;
     color: var(--very--dark--magenta);
     text-align: center;
+    background: url('./images/bg-pattern-top-mobile.svg'),url('./images/bg-pattern-bottom-mobile.svg');
+    background-repeat: no-repeat;
+    background-position: left 0 top 0,bottom 0 right 0;
 }
 
 main{
     padding:70px 20px;
-    background: url('./images/bg-pattern-top-mobile.svg'),url('./images/bg-pattern-bottom-mobile.svg');
-    background-repeat: no-repeat;
-    background-position: right 0 top 0,bottom 0 right 0;
 }
 
 .title{
@@ -90,3 +90,69 @@ main{
     line-height: 1.5em;
 }
 
+@media screen and (min-width: 375px) {
+    body{
+        background: url('./images/bg-pattern-top-desktop.svg'),url('./images/bg-pattern-bottom-desktop.svg');
+        background-repeat: no-repeat;
+        background-position: left 0 top 0,bottom 0 right 0;
+        text-align: left;
+    }
+
+    main{
+        max-width: 1440px;
+        margin: auto;
+        display: grid;
+        grid-template-rows: 1fr 1fr auto;
+        grid-template-columns: 1fr 1fr;
+    }
+    .title{
+        /* grid */
+        font-size: 5rem;
+    }
+    .description{
+        font-size: 1.3rem;
+        grid-row: 2;
+    }
+    .rating-wrapper{
+        grid-row: 1 /span 2;
+        grid-template-columns: repeat(3,2rem) auto repeat(3,2rem);
+        grid-template-rows: 3fr;
+        gap: unset;
+        row-gap: 20px;
+        align-self: center;
+    }
+    .rating-wrapper > .rating-card:nth-child(1) {
+        grid-column: 1/ span 5;
+        grid-row: 1;
+    }
+    .rating-wrapper > .rating-card:nth-child(2){
+        grid-column: 2 /span 5;
+        grid-row: 2;
+    }
+    .rating-wrapper > .rating-card:nth-child(3){
+        grid-column: 3 /span 5;
+        grid-row: 3;
+    }
+
+    .user-reviews{
+        margin-top: unset;
+        column-gap: 3rem;
+        grid-column: 1 /span 2;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(3,auto) auto repeat(3,auto);
+    }
+
+    .user-reviews > review-card:nth-of-type(1){
+        grid-row: 1 / span 5;
+        grid-column: 1;
+    }
+    .user-reviews > review-card:nth-of-type(2){
+        grid-row: 2 / span 5;
+        grid-column: 2;
+    }
+    .user-reviews > review-card:nth-of-type(3){
+        grid-row: 3 / span 5;
+        grid-column: 3;
+    }
+    
+}
